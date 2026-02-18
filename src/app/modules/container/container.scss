@@ -1,0 +1,54 @@
+:host {
+    display: flex;
+    min-height: 100vh;
+
+    /* SIDEBAR ESTRUTURADA */
+    aside {
+        width: 260px;
+        background: var(--bg-sidebar);
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+    }
+
+    .sidebar-header {
+        place-self: center;
+        padding: var(--space-2);
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--brand-primary);
+        letter-spacing: -1px;
+
+        >.logo-img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    /* NAVBAR */
+    .layout-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav.top-nav {
+        height: 70px;
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+    }
+
+    /* CONTEÚDO */
+    .content {
+        padding: var(--space-4);
+    }
+
+
+}

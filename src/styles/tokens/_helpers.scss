@@ -1,0 +1,166 @@
+/**
+ * BLOCOEDU - UTILITY HELPERS
+ * Classes utilitárias baseadas nos Design Tokens
+ */
+@use 'colors' as c;
+@use 'typography' as t;
+@use 'spacing' as sp;
+@use 'shapes' as sh;
+
+// =========================================
+// 1. HELPERS DE COR (TEXTO E FUNDO)
+// =========================================
+.text-primary {
+    color: var(--brand-primary) !important;
+}
+
+.text-success {
+    color: var(--status-success) !important;
+}
+
+.text-error {
+    color: var(--status-error) !important;
+}
+
+.text-warning {
+    color: var(--status-warning) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-main {
+    color: var(--text-main) !important;
+}
+
+.bg-primary {
+    background-color: var(--brand-primary) !important;
+}
+
+.bg-card {
+    background-color: var(--bg-card) !important;
+}
+
+.bg-app {
+    background-color: var(--bg-app) !important;
+}
+
+// =========================================
+// 2. HELPERS DE ESPAÇAMENTO (MARGIN E PADDING)
+// =========================================
+@each $key, $val in sp.$spacings {
+    .m-#{$key} {
+        margin: var(--space-#{$key}) !important;
+    }
+
+    .mt-#{$key} {
+        margin-top: var(--space-#{$key}) !important;
+    }
+
+    .mb-#{$key} {
+        margin-bottom: var(--space-#{$key}) !important;
+    }
+
+    .ml-#{$key} {
+        margin-left: var(--space-#{$key}) !important;
+    }
+
+    .mr-#{$key} {
+        margin-right: var(--space-#{$key}) !important;
+    }
+
+    .p-#{$key} {
+        padding: var(--space-#{$key}) !important;
+    }
+
+    .pt-#{$key} {
+        padding-top: var(--space-#{$key}) !important;
+    }
+
+    .pb-#{$key} {
+        padding-bottom: var(--space-#{$key}) !important;
+    }
+}
+
+// =========================================
+// 3. HELPERS DE TIPOGRAFIA
+// =========================================
+@each $key, $val in t.$font-sizes {
+    .text-#{$key} {
+        font-size: var(--text-#{$key}) !important;
+    }
+}
+
+@each $key, $val in t.$font-weights {
+    .font-#{$key} {
+        font-weight: #{$val} !important;
+    }
+}
+
+// =========================================
+// 4. HELPERS DE FORMATO (SHAPES)
+// =========================================
+@each $key, $val in sh.$radii {
+    .radius-#{$key} {
+        border-radius: var(--radius-#{$key}) !important;
+    }
+}
+
+.shadow-md {
+    box-shadow: var(--shadow-md) !important;
+}
+
+.shadow-lg {
+    box-shadow: var(--shadow-lg) !important;
+}
+
+// =========================================
+// 5. FLEXBOX & LAYOUT QUICK-FIX
+// =========================================
+.flex {
+    display: flex !important;
+}
+
+.flex-col {
+    flex-direction: column !important;
+}
+
+.items-center {
+    align-items: center !important;
+}
+
+.justify-between {
+    justify-content: space-between !important;
+}
+
+.gap-2 {
+    gap: var(--space-2) !important;
+}
+
+.gap-4 {
+    gap: var(--space-4) !important;
+}
+
+/**
+ * HELPERS: BORDER RADIUS
+ * Gera classes como .radius-md, .radius-lg, .radius-full
+ */
+@each $name, $value in sh.$radii {
+    .radius-#{$name} {
+        border-radius: var(--radius-#{$name}) !important;
+    }
+}
+
+// Helpers para cantos específicos (ex: apenas topo para cards)
+@each $name, $value in sh.$radii {
+    .radius-t-#{$name} {
+        border-top-left-radius: var(--radius-#{$name}) !important;
+        border-top-right-radius: var(--radius-#{$name}) !important;
+    }
+
+    .radius-b-#{$name} {
+        border-bottom-left-radius: var(--radius-#{$name}) !important;
+        border-bottom-right-radius: var(--radius-#{$name}) !important;
+    }
+}

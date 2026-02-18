@@ -1,0 +1,53 @@
+.be-table {
+
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    /* Garante que o raio da borda funcione */
+
+    thead th {
+        background-color: var(--bg-app);
+        color: var(--text-muted);
+        font-weight: var(--weight-semibold);
+        text-align: left;
+        padding: var(--space-4) var(--space-4);
+        border-bottom: 1px solid var(--border);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    tbody td {
+        padding: var(--space-4) var(--space-4);
+        border-bottom: 1px solid var(--border);
+        color: var(--text-main);
+        vertical-align: middle;
+    }
+
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Efeito Hover na linha */
+    tbody tr:hover {
+        background-color: var(--brand-primary-soft);
+        transition: background 0.2s ease;
+    }
+
+    /* Estilo Zebra (Striped) */
+    tbody tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+}
+
+/* TABELA ESTILO BLOCO */
+.card-table {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}

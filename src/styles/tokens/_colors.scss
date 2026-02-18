@@ -1,0 +1,56 @@
+@use "sass:color";
+
+// 1. Função para calcular a cor do Dark Mode
+@function generate-dark-brand($base-color) {
+    // Mistura 20% de branco à cor original para suavizar no dark mode
+    @return color.mix(#fff, $base-color, 35%);
+}
+
+// Função que extrai os canais e retorna no formato "R, G, B"
+@function get-rgb-channels($color) {
+    @return "#{color.channel($color, 'red', $space: rgb)}, #{color.channel($color, 'green', $space: rgb)}, #{color.channel($color, 'blue', $space: rgb)}";
+}
+
+// Brand Colors - Facilmente alteráveis por cliente
+// $brand-primary: #3B82F6 !default;
+$brand-primary: #001063;
+$brand-primary-dark: generate-dark-brand($brand-primary);
+$brand-primary-hover: darken($brand-primary, 10%);
+$brand-primary-hover-rgb: get-rgb-channels($brand-primary);
+
+$brand-primary-soft: rgba($brand-primary, 0.1);
+$brand-primary-hover-dark: color.mix(#fff, $brand-primary-dark, 10%);
+$brand-primary-hover-dark-rgb: get-rgb-channels($brand-primary-hover-dark);
+$brand-primary-soft-dark: color.change($brand-primary-dark, $alpha: 0.15);
+// Status Colors
+$color-success: #10B981;
+$color-error: #EF4444;
+$color-warning: #F59E0B;
+$color-info: #0EA5E9;
+
+// Theme Mapping
+$themes: (
+    light: (bg-app: #F8FAFC,
+        bg-card: #FFFFFF,
+        bg-sidebar: #FFFFFF,
+        text-main: #1E293B,
+        text-muted: #64748B,
+        border: #E2E8F0,
+        input-bg: #FFFFFF,
+        "brand-primary": $brand-primary,
+        "brand-hover": color.scale($brand-primary, $lightness: -10%),
+        "brand-hover-rgb": $brand-primary-hover-rgb,
+        "brand-soft": color.change($brand-primary, $alpha: 0.1),
+    ),
+    dark: (bg-app: #0F172A,
+        bg-card: #1E293B,
+        bg-sidebar: #111827,
+        text-main: #F1F5F9,
+        text-muted: #94A3B8,
+        border: #334155,
+        input-bg: #0F172A,
+        "brand-primary": $brand-primary-dark,
+        "brand-hover": $brand-primary-hover-dark,
+        "brand-hover-rgb": $brand-primary-hover-dark-rgb,
+        "brand-soft": $brand-primary-soft-dark)
+);

@@ -1,12 +1,31 @@
+/*
+Breakpoint,Tamanho,Dispositivo Típico
+xs,< 576px,Celulares pequenos em modo retrato.
+sm,≥ 576px,Celulares grandes ou modo paisagem.
+md,≥ 768px,Tablets (como o iPad) em modo retrato.
+lg,≥ 992px,Laptops e computadores com telas menores.
+xl,≥ 1200px,Monitores desktop padrão.
+2xl,≥ 1400px,Monitores muito grandes (Widescreen).
+*/
+
 $breakpoints: (
-    mobile: 480px,
-    tablet: 768px,
-    laptop: 1024px,
-    desktop: 1440px
+  "xs": 0,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "2xl": 1400px
 );
 
-@mixin device($size) {
-    @media (min-width: map-get($breakpoints, $size)) {
-        @content;
+// Mixin para facilitar o uso
+@mixin size($size) {
+  $width: map-get($breakpoints, $size);
+
+  @if $width {
+    @media (min-width: $width) {
+      @content;
     }
+  } @else {
+    @error "Breakpoint '#{$size}' não encontrado.";
+  }
 }

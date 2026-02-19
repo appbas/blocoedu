@@ -85,6 +85,10 @@
     @each $name, $value in map.get(c.$themes, "dark") {
         --#{$name}: #{$value};
     }
+
+  .logo-img {
+    filter: invert(0%) !important;
+  }
 }
 
 body {

@@ -1,0 +1,105 @@
+:host {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .login-card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--bg-card);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  }
+
+  .login-card h2 {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .login-card p {
+    margin-bottom: 32px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* INPUTS */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  input {
+    height: 48px;
+    padding: 0 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--bg-app);
+    color: var(--text-main);
+    outline: none;
+    transition: 0.2s;
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+
+    &:focus {
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    &:disabled {
+      user-select: none;
+      touch-action: none;
+      cursor: not-allowed;
+      background-color: var(--bg-disabled);
+      color: var(--text-disabled);
+      border-color: var(--border-disabled);
+    }
+  }
+
+  .btn-login {
+    width: 100%;
+    height: 48px;
+    background-color: var(--brand-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 10px;
+  }
+
+  .btn-login:hover {
+    background-color: var(--brand-hover);
+  }
+
+  .footer-links {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .footer-links a {
+    color: var(--brand-primary);
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      color: var(--brand-hover);
+    }
+  }
+}

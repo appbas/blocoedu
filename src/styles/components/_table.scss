@@ -6,7 +6,6 @@
     background-color: var(--bg-card);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    /* Garante que o raio da borda funcione */
 
     thead th {
         background-color: var(--bg-app);
@@ -32,7 +31,7 @@
 
     /* Efeito Hover na linha */
     tbody tr:hover {
-        background-color: var(--brand-soft);
+        background-color: var(--brand-soft) !important;
         transition: background 0.2s ease;
     }
 
@@ -43,8 +42,17 @@
 
 }
 
+.be-header-fixed {
+
+    thead {
+        position: sticky;
+        top: 0;
+    }
+}
+
 /* TABELA ESTILO BLOCO */
 .card-table {
+    position: relative;
     background-color: var(--bg-card);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border);

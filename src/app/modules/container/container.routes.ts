@@ -8,6 +8,10 @@ const routes: Routes = [
             {
                 path: '',
                 loadComponent: () => import('../dashboard/dashboard').then(m => m.Dashboard),
+            },
+            {
+                path: 'students',
+                loadChildren: () => import('../student/student.routes'),
             }
         ]
     }

@@ -1,6 +1,6 @@
 :host {
     display: flex;
-    min-height: 100vh;
+    min-height: 100dvh;
 
     /* SIDEBAR ESTRUTURADA */
     aside {
@@ -11,7 +11,7 @@
         flex-direction: column;
         position: sticky;
         top: 0;
-        height: 100vh;
+        height: 100dvh;
     }
 
     .sidebar-header {
@@ -54,10 +54,11 @@
 
     /* CONTEÚDO */
     .content {
+        position: relative;
         padding: var(--space-4);
+        height: calc(100dvh - 70px);
+        overflow-y: auto;
     }
 
 
 }
-
-

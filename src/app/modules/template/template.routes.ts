@@ -16,6 +16,11 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'login',
+    redirectTo: 'access',
+    pathMatch: 'full'
+  }
 ];
 
 export default routes;

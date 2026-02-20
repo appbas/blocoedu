@@ -12,8 +12,8 @@
 }
 
 // Brand Colors - Facilmente alteráveis por cliente
-// $brand-primary: #3B82F6 !default;
-$brand-primary: #001063;
+$brand-primary: #3B82F6 !default;
+// $brand-primary: #001063;
 $brand-primary-dark: generate-dark-brand($brand-primary);
 $brand-primary-hover: darken($brand-primary, 10%);
 $brand-primary-hover-rgb: get-rgb-channels($brand-primary);
@@ -36,7 +36,7 @@ $themes: (
         text-main: #1E293B,
         text-muted: #9cacc4,
         border: #E2E8F0,
-        input-bg: #FFFFFF,
+        input-bg: #f0f1f3,
         "brand-primary": $brand-primary,
         "brand-hover": color.scale($brand-primary, $lightness: 10%),
         "brand-hover-rgb": $brand-primary-hover-rgb,
@@ -48,7 +48,7 @@ $themes: (
         bg-card: #1E293B,
         bg-sidebar: #111827,
         text-main: #F1F5F9,
-        text-muted: #464d57,
+        text-muted: #5c6672,
         border: #334155,
         input-bg: #0F172A,
         "brand-primary": $brand-primary-dark,

@@ -11,6 +11,6 @@ select {
         border: none !important;
         outline: none !important;
         // outline-color: var(--brand-soft);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb), 0.2);
     }
 }

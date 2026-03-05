@@ -1,0 +1,56 @@
+:host {
+    display: block;
+    width: 100%;
+
+    .select-school {
+        &-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: var(--space-4);
+            border: var(--border-width-1) var(--border-style-solid) var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--space-2);
+
+            .school-name-city {
+                p {
+                    font-weight: var(--font-bold);
+                    font-size: var(--text-sm);
+                }
+            }
+
+
+
+            .school-image-content {
+                width: 40px;
+                height: 40px;
+                // background-color: var(--bg-disabled); // Fundo cinza claro
+                background-color: red; // Fundo cinza claro
+                border-radius: var(--radius-full);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--text-disabled); // Cor do ícone SVG
+                overflow: hidden;
+                place-self: center;
+                background-color: rgba(var(--brand-primary-rgb), 0.1);
+
+                svg {
+                    width: 70%;
+                    height: 70%;
+                    fill: var(--brand-primary);
+
+                    path {
+                        stroke: var(--brand-primary);
+                        fill: var(--brand-primary);
+                    }
+
+                    body[data-theme="dark"] & {
+                        fill: var(--brand-primary);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -83,20 +83,7 @@
     }
 }
 
-// =========================================
-// 3. HELPERS DE TIPOGRAFIA
-// =========================================
-@each $key, $val in t.$font-sizes {
-    .text-#{$key} {
-        font-size: var(--text-#{$key}) !important;
-    }
-}
 
-@each $key, $val in t.$font-weights {
-    .font-#{$key} {
-        font-weight: #{$val} !important;
-    }
-}
 
 // =========================================
 // 4. HELPERS DE FORMATO (SHAPES)

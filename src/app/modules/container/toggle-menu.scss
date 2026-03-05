@@ -1,0 +1,76 @@
+@use 'breakpoints' as bp;
+
+// Variáveis para facilitar o ajuste no seu Design System
+$hamburger-width: 24px;
+$hamburger-line-height: 3px;
+$hamburger-spacing: 6px;
+$hamburger-color: rgba(var(--brand-primary-rgb), 0.4); // Sua cor primária do BlocoEdu
+$transition-speed: 0.3s;
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include bp.size(lg) {
+        display: none;
+    }
+
+    .hamburger-box {
+        width: $hamburger-width;
+        height: ($hamburger-line-height * 3) + ($hamburger-spacing * 2);
+        display: inline-block;
+        position: relative;
+    }
+
+    .hamburger-inner {
+        top: 50%;
+        transform: translateY(-50%);
+
+        &,
+        &::before,
+        &::after {
+            width: $hamburger-width;
+            height: $hamburger-line-height;
+            background-color: $hamburger-color;
+            border-radius: 4px;
+            position: absolute;
+            transition: transform $transition-speed ease, opacity $transition-speed ease;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+        }
+
+        &::before {
+            top: -($hamburger-spacing + $hamburger-line-height);
+        }
+
+        &::after {
+            bottom: -($hamburger-spacing + $hamburger-line-height);
+        }
+    }
+
+    // Estado Aberto (Transforma em X)
+    &.open {
+        .hamburger-inner {
+            transform: rotate(45deg);
+
+            &::before {
+                top: 0;
+                opacity: 0; // Esconde a linha de cima
+            }
+
+            &::after {
+                bottom: 0;
+                transform: rotate(-90deg); // Gira a de baixo para cruzar
+            }
+        }
+    }
+}

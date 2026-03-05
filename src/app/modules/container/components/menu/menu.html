@@ -4,18 +4,19 @@
 
 <div class="menu-group">
     <div class="menu-label">Geral</div>
-    <a class="menu-item" routerLink="/" routerLinkActive="active"
+    <a class="menu-item" routerLink="/" routerLinkActive="active" (click)="menuSelected()"
         [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
-    <a class="menu-item" routerLink="/agenda" routerLinkActive="active">Agenda</a>
+    <a class="menu-item" routerLink="/agenda" routerLinkActive="active" (click)="menuSelected()">Agenda</a>
 </div>
 
 <div class="menu-group">
     <div class="menu-label">Gestão</div>
-    <a class="menu-item" routerLink="/students" routerLinkActive="active">Alunos</a>
-    <a class="menu-item" routerLink="/teachers" routerLinkActive="active">Professores</a>
-    <a class="menu-item" routerLink="/classes" routerLinkActive="active">Turmas e Notas</a>
+    <a class="menu-item" routerLink="/students" routerLinkActive="active" (click)="menuSelected()">Alunos</a>
+    <a class="menu-item" routerLink="/teachers" routerLinkActive="active" (click)="menuSelected()">Professores</a>
+    <a class="menu-item" routerLink="/classes" routerLinkActive="active" (click)="menuSelected()">Turmas e Notas</a>
+    <a class="menu-item" routerLink="/users" routerLinkActive="active" (click)="menuSelected()">Usuários</a>
 </div>
 
 <div class="menu-group" style="margin-top: auto; padding-bottom: 20px;">
-    <a class="menu-item">⚙ Configurações</a>
+    <a class="menu-item" (click)="menuSelected()">⚙ Configurações</a>
 </div>

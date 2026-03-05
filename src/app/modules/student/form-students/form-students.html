@@ -1,0 +1,132 @@
+<form [formGroup]="alunoForm" (ngSubmit)="save()">
+    <div class="form-header">
+        <a type-link="rounded" routerLink="..">
+            <span class="material-symbols-outlined">
+                arrow_back_ios_new
+            </span>
+        </a>
+        <header class="form-header">
+            <h2 class="text-md font-bold">{{ isEditing() ? 'Editar Aluno' : 'Novo Cadastro' }}</h2>
+            <div class="header-actions">
+                <span class="badge" [class.badge-primary]="isEditing()" [class.badge-success]="!isEditing()">
+                    {{ isEditing() ? 'Modo Edição' : 'Rascunho' }}
+                </span>
+            </div>
+        </header>
+    </div>
+
+    <app-select-school></app-select-school>
+
+    <div class="card">
+        <fieldset class="form-section">
+            <legend>Identificação</legend>
+            <div class="form-identification-form">
+                <div class="avatar-container profile-img">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" fill="currentColor" />
+
+                        <path d="M20 19C20 15.134 16.866 12 13 12H11C7.13401 12 4 15.134 4 19V20H20V19Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+
+                <div class="field">
+                    <label>Nome Completo</label>
+                    <input type="text" formControlName="nome" class="form-input" placeholder="Ex: Lucas Silva">
+                </div>
+                <div class="field">
+                    <label>Data de Nascimento</label>
+                    <input type="date" formControlName="dataNascimento" class="form-input">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="card">
+        <fieldset class="form-section">
+            <legend>Dados acadêmicos</legend>
+            <div class="form-academic-form">
+
+                <app-select-school></app-select-school>
+
+                <div class="field col-6">
+                    <label>Escola</label>
+                    <input type="text" formControlName="escola" class="form-input" readonly>
+                </div>
+                <div class="field col-2">
+                    <label>Cidade</label>
+                    <input type="text" formControlName="cidade" class="form-input" readonly>
+                </div>
+                <div class="field col-3">
+                    <label>Bairro</label>
+                    <input type="text" formControlName="bairro" class="form-input" readonly>
+                </div>
+                <div class="field col-1">
+                    <label>Estado</label>
+                    <input type="text" formControlName="estado" class="form-input" readonly>
+                </div>
+                <div class="field col-4">
+                    <label>Matrícula</label>
+                    <input type="text" formControlName="matricula" class="form-input" readonly>
+                </div>
+                <div class="field col-4">
+                    <label>Turma</label>
+                    <select formControlName="turma" class="form-input">
+                        <option value="1a">1º Ano A</option>
+                        <option value="2a">2º Ano A</option>
+                    </select>
+                </div>
+                <div class="field col-4">
+                    <label>Turno</label>
+                    <select formControlName="turno" class="form-input">
+                        <option value="matutino">Matutino</option>
+                        <option value="vespertino">Vespertino</option>
+                        <option value="integral">Integral</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="card">
+        <fieldset class="form-responsible-container">
+            <legend>Responsáveis</legend>
+            @for (item of [0,0]; track $index) {
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-md font-bold">Responsável 1</h2>
+                </div>
+                <div class="form-responsible-form">
+                    <div class="field">
+                        <label>Nome</label>
+                        <input type="text" formControlName="nome" class="form-input">
+                    </div>
+                    <div class="field">
+                        <label>CPF</label>
+                        <input type="text" formControlName="nome" class="form-input">
+                    </div>
+                    <div class="field">
+                        <label>Telefone</label>
+                        <input type="text" formControlName="nome" class="form-input">
+                    </div>
+                    <div class="field">
+                        <label>Turno</label>
+                        <select formControlName="turno" class="form-input">
+                            <option value="matutino">Matutino</option>
+                            <option value="vespertino">Vespertino</option>
+                            <option value="integral">Integral</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            }
+        </fieldset>
+    </div>
+
+    <footer class="form-actions">
+        <button type="button" type-button="outline" type-color="warning" (click)="cancel()">Cancelar</button>
+        <button type="submit" type-color="success" [disabled]="alunoForm.valid">
+            {{ isEditing() ? 'Atualizar Dados' : 'Finalizar Matrícula' }}
+        </button>
+    </footer>
+</form>

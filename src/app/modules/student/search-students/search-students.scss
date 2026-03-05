@@ -1,5 +1,64 @@
+@use "breakpoints" as m;
+
 :host {
     display: flex;
     flex-direction: column;
     gap: var(--space-8);
+
+    .serach {
+        &-students {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+            align-items: flex-end;
+
+            @include m.size(lg) {
+                grid-template-columns: repeat(5, 1fr);
+
+                .field {
+                    &:first-child {
+                        grid-column: 1 / 6;
+                    }
+                }
+
+                button {
+                    &:first-of-type {
+                        grid-column: 4 / 5;
+                    }
+
+                    &:last-of-type {
+                        grid-column: 5 / 6;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .search-actions {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: var(--space-4);
+
+        @include m.size(lg) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        h2 {
+            place-self: flex-start;
+        }
+
+        button {
+            flex: 0 0 auto;
+
+            @include m.size(lg) {
+                max-width: 200px;
+            }
+        }
+    }
 }

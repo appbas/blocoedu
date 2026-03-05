@@ -8,6 +8,10 @@ const routes: Routes = [
      {
       path: '',
       loadComponent: () => import('./search-students/search-students').then(m => m.SearchStudents),
+     },
+     {
+      path: 'new',
+      loadComponent: () => import('./form-students/form-students').then(m => m.FormStudents),
      }
     ],
   },

@@ -42,11 +42,6 @@
         --space-#{$name}: #{$value};
     }
 
-    /* 3. LOOP PARA TIPOGRAFIA (Baseado no mapa $font-sizes) */
-    @each $name, $value in t.$font-sizes {
-        --text-#{$name}: #{$value};
-    }
-
     /* 4. LOOP PARA BORDAS (Baseado no mapa $radii) */
     @each $name, $value in s.$radii {
         --radius-#{$name}: #{$value};
@@ -61,16 +56,6 @@
     @each $name, $value in map.get(c.$themes, "light") {
         --#{$name}: #{$value};
     }
-
-    /* GERAÇÃO DINÂMICA DE BORDAS */
-    @each $name, $value in b.$border-widths {
-        --border-width-#{$name}: #{$value};
-    }
-
-    @each $name, $value in b.$border-styles {
-        --border-style-#{$name}: #{$value};
-    }
-
 
     // Cores de Marca
     --border-primary: var(--brand-primary);
@@ -102,11 +87,16 @@ body {
     font-family: t.$font-family-base;
     background-color: var(--bg-app);
     color: var(--text-main);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: var(--text-xs);
+    // transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.no-scroll {
+    overflow-y: hidden !important;
 }

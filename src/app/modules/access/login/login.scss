@@ -4,6 +4,9 @@
   justify-content: center;
 
   .login-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
     width: 100%;
     max-width: 400px;
     background: var(--bg-card);

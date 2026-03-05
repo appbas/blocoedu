@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /**
  * BLOCOEDU - BORDER TOKENS
  */
@@ -15,3 +17,15 @@ $border-styles: (
     "dashed": dashed,
     "dotted": dotted
 );
+
+:root {
+
+    /* GERAÇÃO DINÂMICA DE BORDAS */
+    @each $name, $value in $border-widths {
+        --border-width-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $border-styles {
+        --border-style-#{$name}: #{$value};
+    }
+}

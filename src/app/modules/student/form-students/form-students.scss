@@ -1,0 +1,100 @@
+@use 'tokens/spacing' as sp;
+@use 'tokens/colors' as c;
+@use 'breakpoints' as bp;
+
+:host {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+    }
+
+    .form {
+
+        &-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        &-identification {
+            &-form {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+
+                @include bp.size(lg) {
+                    grid-template-columns: 100px 3fr 1fr;
+                }
+            }
+        }
+
+        &-academic {
+            &-form {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+
+                @include bp.size(md) {
+                    grid-template-columns: repeat(12, 1fr);
+                }
+
+                app-select-school {
+                    grid-column: 1 / -1;
+                }
+            }
+        }
+
+        &-responsible {
+            &-container {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+
+            &-form {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+
+                @include bp.size(md) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
+    }
+
+    .form-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: var(--space-3);
+
+        @include bp.size(sm) {
+            flex-direction: row;
+        }
+    }
+
+
+
+    .avatar-container {
+        width: 80px;
+        height: 80px;
+        background-color: var(--bg-disabled); // Fundo cinza claro
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-disabled); // Cor do ícone SVG
+        overflow: hidden;
+        place-self: center;
+        background-color: var(--bg-app);
+
+
+        body[data-theme="dark"] & {
+            color: var(--brand-primary);
+            background-color: var(--bg-app);
+        }
+    }
+}

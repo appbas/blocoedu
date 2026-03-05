@@ -12,50 +12,60 @@
 }
 
 // Brand Colors - Facilmente alteráveis por cliente
-$brand-primary: #3B82F6 !default;
-// $brand-primary: #001063;
+// $brand-primary: #833bf6 !default;
+$brand-primary: #633100;
+$brand-primary-rgb: get-rgb-channels($brand-primary);
 $brand-primary-dark: generate-dark-brand($brand-primary);
+$brand-primary-dark-rgb: get-rgb-channels($brand-primary-dark);
 $brand-primary-hover: darken($brand-primary, 10%);
 $brand-primary-hover-rgb: get-rgb-channels($brand-primary);
-
-$brand-primary-soft: rgba($brand-primary, 0.1);
 $brand-primary-hover-dark: color.mix(#fff, $brand-primary-dark, 10%);
 $brand-primary-hover-dark-rgb: get-rgb-channels($brand-primary-hover-dark);
+$brand-primary-soft: rgba($brand-primary, 0.1);
 $brand-primary-soft-dark: color.change($brand-primary-dark, $alpha: 0.15);
 // Status Colors
 $color-success: #10B981;
+$color-success-rgb: get-rgb-channels($color-success);
 $color-error: #EF4444;
+$color-error-rgb: get-rgb-channels($color-error);
 $color-warning: #F59E0B;
+$color-warning-rgb: get-rgb-channels($color-warning);
 $color-info: #0EA5E9;
+$color-info-rgb: get-rgb-channels($color-info);
 
 // Theme Mapping
 $themes: (
     light: (bg-app: #F8FAFC,
         bg-card: #FFFFFF,
         bg-sidebar: #FFFFFF,
-        text-main: #1E293B,
+        text-main: color.mix(#000, $brand-primary, 70%),
+        text-main-rgb: get-rgb-channels(color.mix(#000, $brand-primary, 70%)),
+        // text-main: color.scale($brand-primary-dark, $lightness: 0%, $saturation: 0%),
         text-muted: #9cacc4,
         border: #E2E8F0,
         input-bg: #f0f1f3,
         "brand-primary": $brand-primary,
+        "brand-primary-rgb": $brand-primary-rgb,
         "brand-hover": color.scale($brand-primary, $lightness: 10%),
         "brand-hover-rgb": $brand-primary-hover-rgb,
         "brand-soft": color.change($brand-primary, $alpha: 0.1),
-        "bg-disabled": #F1F5F9,
+        "bg-disabled": rgba(color.mix(#d6d6d6, $brand-primary, 80%), 0.2),
         "text-disabled": #94A3B8,
         "border-disabled": #E2E8F0),
-    dark: (bg-app: #0F172A,
-        bg-card: #1E293B,
-        bg-sidebar: #111827,
-        text-main: #F1F5F9,
+    dark: (bg-app: #1e1f21,
+        bg-card: #121212,
+        bg-sidebar: #121212,
+        text-main: color.mix(#fff, $brand-primary, 90%),
+        text-main-rgb: get-rgb-channels(color.mix(#fff, $brand-primary, 90%)),
         text-muted: #5c6672,
-        border: #334155,
-        input-bg: #0F172A,
+        border: #444548,
+        input-bg: #1e1f21,
         "brand-primary": $brand-primary-dark,
+        "brand-primary-rgb": $brand-primary-dark-rgb,
         "brand-hover": $brand-primary-hover-dark,
         "brand-hover-rgb": $brand-primary-hover-dark-rgb,
         "brand-soft": $brand-primary-soft-dark,
-        "bg-disabled": #242f44,
+        "bg-disabled": rgba(color.mix(#8d8d8d, $brand-primary-dark, 80%), 0.2),
         "text-disabled": #475569,
         "border-disabled": #334155)
 );

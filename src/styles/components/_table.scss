@@ -1,5 +1,4 @@
 .be-table {
-
     width: 100%;
     border-collapse: collapse;
     font-size: var(--text-sm);
@@ -7,15 +6,18 @@
     border-radius: var(--radius-lg);
     overflow: hidden;
 
-    thead th {
-        background-color: var(--bg-app);
-        color: var(--text-muted);
-        font-weight: var(--weight-semibold);
-        text-align: left;
-        padding: var(--space-4) var(--space-4);
-        border-bottom: 1px solid var(--border);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+
+    thead {
+        th {
+            background-color: var(--bg-app);
+            color: var(--text-muted);
+            font-weight: var(--weight-semibold);
+            text-align: left;
+            padding: var(--space-4) var(--space-4);
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
     }
 
     tbody td {
@@ -31,7 +33,7 @@
 
     /* Efeito Hover na linha */
     tbody tr:hover {
-        background-color: var(--brand-soft) !important;
+        background-color: rgba(var(--brand-hover-rgb), 0.05) !important;
         transition: background 0.2s ease;
     }
 
@@ -52,10 +54,13 @@
 
 /* TABELA ESTILO BLOCO */
 .card-table {
+    display: block;
+    width: 100%;
     position: relative;
     background-color: var(--bg-card);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     overflow: hidden;
+    overflow-x: auto;
 }

@@ -1,17 +1,26 @@
+@use 'breakpoints' as bp;
+
 :host {
     display: flex;
     min-height: 100dvh;
 
+    --aside-width: 260px;
+    --header-height: 70px;
+
     /* SIDEBAR ESTRUTURADA */
     aside {
-        width: 260px;
+        width: var(--aside-width);
         background: var(--bg-sidebar);
         border-right: 1px solid var(--border);
-        display: flex;
+        display: none;
         flex-direction: column;
         position: sticky;
         top: 0;
         height: 100dvh;
+
+        @include bp.size(lg) {
+            display: flex;
+        }
     }
 
     .sidebar-header {
@@ -19,21 +28,13 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 70px;
+        height: var(--header-height);
         place-self: center;
         padding: var(--space-2);
         font-size: 20px;
         font-weight: 800;
         color: var(--brand-primary);
         letter-spacing: -1px;
-
-        >.logo-img {
-            width: 50%;
-            height: auto;
-            text-align: center;
-            place-items: center;
-            filter: invert(1);
-        }
     }
 
     .layout-right {
@@ -49,7 +50,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 32px;
+        padding: 0 var(--space-2);
+
+        @include bp.size(lg) {
+            padding: 0 var(--space-4);
+        }
     }
 
     /* CONTEÚDO */
@@ -57,8 +62,51 @@
         position: relative;
         padding: var(--space-4);
         height: calc(100dvh - 70px);
+        width: 100dvw;
         overflow-y: auto;
+
+        @include bp.size(lg) {
+            width: calc(100dvw - var(--aside-width));
+        }
     }
 
+    .toggle-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    .mobile-menu {
+        position: absolute;
+        width: 100%;
+        height: calc(100dvh - var(--header-height));
+        top: 0;
+        left: 0;
+        background: var(--bg-sidebar);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+
+        &.open {
+            transform: translateX(0);
+            z-index: 1;
+        }
+    }
+
+    .component-mobile {
+        display: block;
+        width: 100px;
+
+        svg {
+            width: 100px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+        }
+
+
+        @include bp.size(lg) {
+            display: none;
+        }
+    }
 
 }

@@ -1,6 +1,6 @@
-<h2>Alunos</h2>
+<h2>Pesquisar alunos</h2>
 
-<section class="card filter-bar radius-md border-1 border-solid border-1 shadow-sm">
+<section class="card serach-students">
     <div class="field">
         <label for="search">Pesquisar</label>
         <input type="text" id="search" placeholder="Nome, matrícula ou CPF..." class="filter-input">
@@ -17,6 +17,16 @@
     </div>
 
     <div class="field">
+        <label for="turno">Turno</label>
+        <select id="turno" class="filter-input">
+            <option value="">Todos os turnos</option>
+            <option value="matutino">Matutino</option>
+            <option value="vespertino">Vespertino</option>
+            <option value="integral">Integral</option>
+        </select>
+    </div>
+
+    <div class="field">
         <label for="status">Situação</label>
         <select id="status" class="filter-input">
             <option value="">Todos os status</option>
@@ -26,12 +36,14 @@
         </select>
     </div>
 
-    <div class="filter-actions">
-        <button class="btn-primary radius-md">Filtrar</button>
-        <button class="btn-soft radius-md">Limpar</button>
-    </div>
+    <button class="radius-md">Filtrar</button>
+    <button type-button="outline" class="radius-md">Limpar</button>
 </section>
 
+<div class="search-actions">
+    <h2>Alunos</h2>
+    <button class="radius-md" type-color="info" type-button="outline" (click)="newStudent()">Novo aluno</button>
+</div>
 <div class="card-table">
     <table class="be-table be-table-striped be-header-fixed">
         <thead>
@@ -40,43 +52,49 @@
                 <th>Matrícula</th>
                 <th>Aluno</th>
                 <th>Turma</th>
+                <th>Turno</th>
                 <th>Situação</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="font-semibold">2026</td>
                 <td class="font-bold">2026-0001</td>
+                <td class="font-semibold">2026</td>
                 <td>Lucas Gabriel</td>
                 <td>9º Ano A</td>
+                <td>Matutino</td>
                 <td><span class="badge badge-success">ATIVO</span></td>
             </tr>
             <tr>
-                <td class="font-semibold">2026</td>
                 <td class="font-bold">2026-0001</td>
+                <td class="font-semibold">2026</td>
                 <td>Lucas Gabriel</td>
                 <td>9º Ano A</td>
+                <td>Matutino</td>
                 <td><span class="badge badge-info">PRE MATRÍCULA</span></td>
             </tr>
             <tr>
-                <td class="font-semibold">2026</td>
                 <td class="font-bold">2026-0001</td>
+                <td class="font-semibold">2026</td>
                 <td>Lucas Gabriel</td>
                 <td>9º Ano A</td>
+                <td>Matutino</td>
                 <td><span class="badge ">EGRESSO</span></td>
             </tr>
             <tr>
-                <td class="font-semibold">2026</td>
                 <td class="font-bold">2026-0001</td>
+                <td class="font-semibold">2026</td>
                 <td>Lucas Gabriel</td>
                 <td>9º Ano A</td>
+                <td>Vespertino</td>
                 <td><span class="badge badge-error">TRANSFERIDO</span></td>
             </tr>
             <tr>
-                <td class="font-semibold">2026</td>
                 <td class="font-bold">2026-0001</td>
+                <td class="font-semibold">2026</td>
                 <td>Lucas Gabriel</td>
                 <td>9º Ano A</td>
+                <td>Noturno</td>
                 <td><span class="badge badge-warning">REPROVADO</span></td>
             </tr>
         </tbody>

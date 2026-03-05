@@ -12,6 +12,14 @@ const routes: Routes = [
             {
                 path: 'students',
                 loadChildren: () => import('../student/student.routes'),
+            },
+            {
+                path: 'teachers',
+                loadChildren: () => import('../teachers/teachers.routes'),
+            },
+            {
+                path: 'users',
+                loadChildren: () => import('../users/users.routes'),
             }
         ]
     }

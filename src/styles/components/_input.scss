@@ -1,14 +1,36 @@
+@use 'sass:map';
+
+// Theme Mapping
+$themes: (
+    light: (input-indicator-filter: 0),
+    dark: (input-indicator-filter: 1)
+);
+
+:root {
+    @each $name, $value in map.get($themes, "light") {
+        --#{$name}: #{$value};
+    }
+}
+
+.dark-mode,
+[data-theme='dark'] {
+    @each $name, $value in map.get($themes, "dark") {
+        --#{$name}: #{$value};
+    }
+}
+
 /* INPUTS */
 .field {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: var(--space-2);
+    width: 100%;
 }
 
 label {
-    font-size: 13px;
+    font-size: var(--text-sm);
     font-weight: 600;
+    width: 100%;
 }
 
 input[type] {
@@ -21,6 +43,7 @@ input[type] {
     color: var(--text-main);
     outline: none;
     transition: 0.2s;
+    font: inherit;
 
     &::placeholder {
         color: var(--text-muted);
@@ -28,7 +51,12 @@ input[type] {
 
     &:focus {
         border-color: var(--brand-primary);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb), 0.2);
+    }
+
+    &[readonly] {
+        background-color: var(--bg-disabled);
+        cursor: not-allowed;
     }
 
     &:disabled {
@@ -39,4 +67,50 @@ input[type] {
         color: var(--text-disabled);
         border-color: var(--border-disabled);
     }
+
+    &::-webkit-calendar-picker-indicator {
+        color: var(--text-main);
+        filter: invert(var(--input-indicator-filter));
+
+        body[data-theme="dark"] {
+            filter: invert(1) !important;
+        }
+    }
+}
+
+select {
+    height: 40px;
+    width: 100%;
+    padding: 0 var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+    background: var(--input-bg);
+    color: var(--text-main);
+    outline: none;
+    transition: 0.2s;
+    font: inherit;
+
+    &::placeholder {
+        color: var(--text-muted);
+    }
+
+    &:focus {
+        border-color: var(--brand-primary);
+        box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb), 0.2);
+    }
+
+    &[readonly] {
+        background-color: var(--bg-disabled);
+        cursor: not-allowed;
+    }
+
+    &:disabled {
+        user-select: none;
+        touch-action: none;
+        cursor: not-allowed;
+        background-color: var(--bg-disabled);
+        color: var(--text-disabled);
+        border-color: var(--border-disabled);
+    }
+
 }

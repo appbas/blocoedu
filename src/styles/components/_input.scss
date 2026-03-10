@@ -44,6 +44,7 @@ input[type] {
     outline: none;
     transition: 0.2s;
     font: inherit;
+    font-size: var(--text-sm);
 
     &::placeholder {
         color: var(--text-muted);

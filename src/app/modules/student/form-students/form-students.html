@@ -15,7 +15,6 @@
         </header>
     </div>
 
-    <app-select-school></app-select-school>
 
     <div class="card">
         <fieldset class="form-section">
@@ -47,24 +46,8 @@
             <legend>Dados acadêmicos</legend>
             <div class="form-academic-form">
 
-                <app-select-school></app-select-school>
+                <app-select-school />
 
-                <div class="field col-6">
-                    <label>Escola</label>
-                    <input type="text" formControlName="escola" class="form-input" readonly>
-                </div>
-                <div class="field col-2">
-                    <label>Cidade</label>
-                    <input type="text" formControlName="cidade" class="form-input" readonly>
-                </div>
-                <div class="field col-3">
-                    <label>Bairro</label>
-                    <input type="text" formControlName="bairro" class="form-input" readonly>
-                </div>
-                <div class="field col-1">
-                    <label>Estado</label>
-                    <input type="text" formControlName="estado" class="form-input" readonly>
-                </div>
                 <div class="field col-4">
                     <label>Matrícula</label>
                     <input type="text" formControlName="matricula" class="form-input" readonly>
@@ -79,6 +62,34 @@
                 <div class="field col-4">
                     <label>Turno</label>
                     <select formControlName="turno" class="form-input">
+                        <option value="matutino">Matutino</option>
+                        <option value="vespertino">Vespertino</option>
+                        <option value="integral">Integral</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="card">
+        <fieldset class="form-section">
+            <legend>Endereço</legend>
+            <div class="form-address-form">
+                <div class="field">
+                    <label>CEP</label>
+                    <input type="text" formControlName="cidade" class="form-input" readonly>
+                </div>
+                <div class="field">
+                    <label>Cidade</label>
+                    <input type="text" formControlName="cidade" class="form-input" readonly>
+                </div>
+                <div class="field">
+                    <label>Bairro</label>
+                    <input type="text" formControlName="bairro" class="form-input" readonly>
+                </div>
+                <div class="field">
+                    <label>Estado</label>
+                    <select formControlName="estado" class="form-input">
                         <option value="matutino">Matutino</option>
                         <option value="vespertino">Vespertino</option>
                         <option value="integral">Integral</option>

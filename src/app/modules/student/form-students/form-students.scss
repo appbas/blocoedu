@@ -38,11 +38,41 @@
 
                 @include bp.size(md) {
                     grid-template-columns: repeat(12, 1fr);
+
+                    .field {
+                        @include bp.size(md) {
+                            grid-column: span 4;
+                        }
+                    }
                 }
 
                 app-select-school {
                     grid-column: 1 / -1;
                 }
+
+            }
+        }
+
+        &-address {
+            &-form {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+
+                @include bp.size(md) {
+                    grid-template-columns: repeat(12, 1fr);
+
+                    .field {
+                        @include bp.size(md) {
+                            grid-column: span 3;
+                        }
+                    }
+                }
+
+                app-select-school {
+                    grid-column: 1 / -1;
+                }
+
             }
         }
 

@@ -80,7 +80,7 @@
         position: absolute;
         width: 100%;
         height: calc(100dvh - var(--header-height));
-        top: 0;
+        top: var(--header-height);
         left: 0;
         background: var(--bg-sidebar);
         transform: translateX(-100%);

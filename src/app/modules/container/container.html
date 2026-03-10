@@ -19,9 +19,9 @@
   </nav>
 
   <div #content class="content">
-    <app-menu class="mobile-menu" [class.open]="isMenuOpen()" [class.close]="!isMenuOpen()" />
+
     <router-outlet></router-outlet>
   </div>
 
-
+  <app-menu class="mobile-menu" [class.open]="isMenuOpen()" [class.close]="!isMenuOpen()" />
 </div>

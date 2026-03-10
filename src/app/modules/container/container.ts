@@ -37,7 +37,7 @@ export default class Container implements OnInit, OnDestroy {
         } else {
           this.content()?.nativeElement.classList.remove('no-scroll');
         }
-        this.content()?.nativeElement.scrollTo(0, 0);
+        // this.content()?.nativeElement.scrollTo(0, 0);
       }
     });
 
